@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koko.springboot.user.model.Course;
 
-@FeignClient(value = "course-service", url = "http://localhost:9090/courses")
+@FeignClient(value = "course-service", url = "http://localhost:9091/courses")
 public interface CourseControllerFeignClient {
 	@GetMapping
 	List<Course> findAll();
