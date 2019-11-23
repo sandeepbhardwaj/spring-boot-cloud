@@ -19,3 +19,12 @@ spring:
     console:
       enabled: true
       path: /h2_console
+
+
+# Eureka server url      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+      

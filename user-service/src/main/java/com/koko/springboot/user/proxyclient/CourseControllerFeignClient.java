@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koko.springboot.user.model.Course;
 
-@FeignClient(value = "course-service", url = "http://localhost:9091/courses")
+@FeignClient(value = "course-service")
 public interface CourseControllerFeignClient {
-	@GetMapping
+	@GetMapping("/courses")
 	List<Course> findAll();
 
-	@GetMapping(params = "id")
+	@GetMapping(path = "/courses", params = "id")
 	List<Course> findAllById(@RequestParam("id") List<Long> courseIds);
 
-	@PostMapping
+	@PostMapping(path = "/courses")
 	Course save(@RequestBody Course course);
 
-	@GetMapping("/{id}")
+	@GetMapping("/courses/{id}")
 	Course findUserById(@PathVariable Long id);
 }
