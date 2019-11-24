@@ -18,6 +18,8 @@ spring:
     console:
       enabled: true
       path: /h2_console
+  zipkin:
+    base-url: http://localhost:9411/
       
 
 # Eureka server url         
@@ -26,4 +28,5 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
     fetch-registry: true # Important to work with FeignClient
+    
 
