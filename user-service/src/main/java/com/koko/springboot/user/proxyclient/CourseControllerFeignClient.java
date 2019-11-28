@@ -13,15 +13,15 @@ import com.koko.springboot.user.model.Course;
 
 @FeignClient(value = "course-service")
 public interface CourseControllerFeignClient {
-	@GetMapping("/courses")
+	@GetMapping("/")
 	List<Course> findAll();
 
-	@GetMapping(path = "/courses", params = "id")
+	@GetMapping(path = "/", params = "id")
 	List<Course> findAllById(@RequestParam("id") List<Long> courseIds);
 
-	@PostMapping(path = "/courses")
+	@PostMapping(path = "/")
 	Course save(@RequestBody Course course);
 
-	@GetMapping("/courses/{id}")
+	@GetMapping("/{id}")
 	Course findUserById(@PathVariable Long id);
 }

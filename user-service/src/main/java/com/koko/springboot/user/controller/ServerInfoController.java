@@ -9,13 +9,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/")
-public class GreetingController {
+@RequestMapping("/server-info")
+public class ServerInfoController {
 	@Autowired
 	private Environment environment;
 
 	@GetMapping
-	public String greeting() {
+	public String serverInfo() {
 		log.info("Inside greeting");
 		return environment.getProperty("spring.application.name") + " running on port "
 				+ environment.getProperty("server.port");

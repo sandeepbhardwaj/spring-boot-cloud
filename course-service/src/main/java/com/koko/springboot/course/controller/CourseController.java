@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/courses")
+@RequestMapping("/")
 public class CourseController {
 
 	@Autowired

@@ -15,12 +15,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/courses")
+@RequestMapping("/")
 public class UserCourseController {
 	@Autowired
 	UserCourseService courseService;
 
-	@GetMapping("/{userId}")
+	@GetMapping("/{userId}/courses")
 	private List<UserCourse> findAllByUserId(@PathVariable Long userId) {
 		log.info("Inside findAllByUserId userId: {}", userId);
 		return courseService.findAllByUserId(userId);

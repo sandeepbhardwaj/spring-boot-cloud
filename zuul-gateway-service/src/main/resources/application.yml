@@ -18,8 +18,8 @@ zuul:
   - '*'
   routes:
     userservice:
-      path: /user-service/**
+      path: /users/**
       service-id: user-service
     courserservice:
-      path: /course-service/**
+      path: /courses/**
       service-id: course-service
