@@ -29,4 +29,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     fetch-registry: true # Important to work with FeignClient
     
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
+    
 

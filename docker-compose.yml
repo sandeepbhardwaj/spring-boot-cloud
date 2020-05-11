@@ -1,0 +1,63 @@
+version: '3.7'
+
+services:
+  # eureka-server
+  eureka-server:
+    image: eureak-server:v1
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - backend 
+
+  # zuul-gateway-service
+  zuul-gateway-service:
+    image: zuul-gateway-service:v1
+    build:
+      context: ./zuul-gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "8762:8080" 
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/ 
+    networks:
+      - backend
+      
+  # user-service
+  user-service:
+    image: user-service:v1
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    ports:
+      - "9090:8080" 
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/ 
+    networks:
+      - backend
+      
+  # course-service
+  course-service:
+    image: course-service:v1
+    build:
+      context: ./course-service
+      dockerfile: Dockerfile
+    ports:
+      - "9091:8080" 
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/ 
+    networks:
+      - backend  
+
+
+
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
+      
+      
+            
+      
